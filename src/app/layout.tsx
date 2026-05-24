@@ -1,0 +1,38 @@
+import type { Metadata } from "next";
+import { Syne, DM_Sans } from "next/font/google";
+import "./globals.css";
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "WooCommerce CSV Smart Translator",
+  description:
+    "Transforma archivos CSV de scrapers en productos listos para importar en WooCommerce.",
+  openGraph: {
+    title: "WooCommerce CSV Smart Translator",
+    description:
+      "Transforma archivos CSV de scrapers en productos listos para importar en WooCommerce.",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="es" className={`${syne.variable} ${dmSans.variable}`}>
+      <body className="antialiased font-sans noise-overlay">{children}</body>
+    </html>
+  );
+}
